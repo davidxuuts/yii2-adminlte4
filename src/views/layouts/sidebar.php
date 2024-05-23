@@ -33,7 +33,7 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <?php
-            echo \hail812\adminlte\widgets\Menu::widget([
+            echo \davidxu\adminlte4\widgets\Menu::widget([
                 'items' => [
                     [
                         'label' => 'Starter Pages',

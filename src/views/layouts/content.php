@@ -1,7 +1,7 @@
 <?php
 /* @var $content string */
 
-use yii\bootstrap4\Breadcrumbs;
+use yii\bootstrap5\Breadcrumbs;
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

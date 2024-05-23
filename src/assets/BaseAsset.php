@@ -1,6 +1,6 @@
 <?php
 
-namespace hail812\adminlte3\assets;
+namespace davidxu\adminlte4\assets;
 
 use yii\web\AssetBundle;
 
@@ -8,7 +8,7 @@ class BaseAsset extends AssetBundle
 {
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap4\BootstrapAsset',
-        'yii\bootstrap4\BootstrapPluginAsset'
+        'yii\bootstrap5\BootstrapAsset',
+        'yii\bootstrap5\BootstrapPluginAsset'
     ];
 }

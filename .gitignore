@@ -1,5 +1,7 @@
 # phpstorm project files
 .idea
+.DS_Store
+/src/.DS_Store
 
 # composer
 /vendor

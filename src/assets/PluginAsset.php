@@ -1,5 +1,5 @@
 <?php
-namespace hail812\adminlte3\assets;
+namespace davidxu\adminlte4\assets;
 
 use yii\web\AssetBundle;
 
@@ -8,7 +8,7 @@ class PluginAsset extends AssetBundle
     public $sourcePath = '@vendor/almasaeed2010/adminlte/plugins';
 
     public $depends = [
-        'hail812\adminlte3\assets\BaseAsset'
+        'davidxu\adminlte4\assets\BaseAsset'
     ];
 
     public static $pluginMap = [
@@ -19,7 +19,7 @@ class PluginAsset extends AssetBundle
             'css' => ['icheck-bootstrap/icheck-bootstrap.css']
         ],
         'sweetalert2' => [
-            'css' => 'sweetalert2-theme-bootstrap-4/bootstrap-4.min.css',
+            'css' => 'sweetalert2-theme-bootstrap-5/bootstrap-5.min.css',
             'js' => 'sweetalert2/sweetalert2.min.js'
         ],
     ];
@@ -56,6 +56,6 @@ class PluginAsset extends AssetBundle
      */
     private function getPluginConfig($name)
     {
-        return \Yii::$app->params['hail812/yii2-adminlte3']['pluginMap'][$name] ?? self::$pluginMap[$name] ?? null;
+        return \Yii::$app->params['davidxu/yii2-adminlte4']['pluginMap'][$name] ?? self::$pluginMap[$name] ?? null;
     }
 }
