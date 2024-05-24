@@ -2,6 +2,8 @@
 namespace davidxu\adminlte4\assets;
 
 use yii\web\AssetBundle;
+use davidxu\adminlte4\assets\BaseAsset;
+use davidxu\adminlte4\assets\PluginAsset;
 
 class AdminLteAsset extends AssetBundle
 {
@@ -16,7 +18,7 @@ class AdminLteAsset extends AssetBundle
     ];
 
     public $depends = [
-        'davidxu\adminlte4\assets\BaseAsset',
-        'davidxu\adminlte4\assets\PluginAsset'
+        BaseAsset::class,
+        PluginAsset::class,
     ];
 }

@@ -14,12 +14,10 @@
             "email": "david.xu.uts@163.com"
         }
     ],
-    "minimum-stability": "dev-master",
     "require": {
         "php": ">=7.0",
         "yiisoft/yii2": "~2.0.0",
-        "yiisoft/yii2-bootstrap5": "~2.0.4",
-        "almasaeed2010/adminlte": "~v4.0.0-beta1"
+        "yiisoft/yii2-bootstrap5": "~2.0.4"
     },
     "autoload": {
         "psr-4": {
