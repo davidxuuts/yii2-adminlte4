@@ -2,6 +2,7 @@
 
 namespace davidxu\adminlte4\widgets;
 
+use Throwable;
 use yii\helpers\Html;
 
 /**
@@ -10,21 +11,21 @@ use yii\helpers\Html;
  */
 class SmallBox extends Widget
 {
-    public $title;
+    public string $title = '';
 
-    public $text;
+    public string $text = '';
 
-    public $icon;
+    public string $icon = '';
 
-    public $theme;
+    public string $theme = '';
 
-    public $linkText;
+    public false|string $linkText = false;
 
-    public $linkUrl;
+    public ?string $linkUrl = null;
 
-    public $linkOptions = [];
+    public array $linkOptions = [];
 
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -36,27 +37,26 @@ class SmallBox extends Widget
         echo $this->renderFooter() . "\n";
     }
 
-    public function run()
+    /**
+     * @throws Throwable
+     */
+    public function run(): void
     {
         echo $this->renderLoadingStyle(['iconSize' => 'fa-3x']);
         echo "\n" . Html::endTag('div');
     }
 
-    protected function renderInner()
+    protected function renderInner(): string
     {
         $h = Html::tag('h3', $this->title);
         $p = Html::tag('p', $this->text);
-        $inner = Html::tag('div', $h . $p, ['class' => 'inner']);
-
-        return $inner;
+        return Html::tag('div', $h . $p, ['class' => 'inner']);
     }
 
     protected function renderIcon()
     {
         $i = Html::tag('i', '', ['class' => $this->icon]);
-        $icon = Html::tag('div', $i, ['class' => 'icon']);
-
-        return $icon;
+        return Html::tag('div', $i, ['class' => 'icon']);
     }
 
     protected function renderFooter()
@@ -66,16 +66,14 @@ class SmallBox extends Widget
         if ($this->linkText !== false) {
             empty($this->linkText) && $this->linkText = 'More info';
         }
-        $a = Html::a($this->linkText.' '.$i, $this->linkUrl, $this->linkOptions);
-
-        return $a;
+        return Html::a($this->linkText.' '.$i, $this->linkUrl, $this->linkOptions);
     }
 
     /**
-     * Initializes the widget options
+     * Initializes the widget options,
      * This method sets the default values for various options.
      */
-    protected function initOptions()
+    protected function initOptions(): void
     {
         $this->options = array_merge([
             'class' => 'small-box'

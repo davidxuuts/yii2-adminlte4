@@ -2,11 +2,16 @@
 
 namespace davidxu\adminlte4\widgets;
 
+use Throwable;
+
 trait WidgetTrait
 {
-    public $loadingStyle = false;
+    public bool $loadingStyle = false;
 
-    protected function renderLoadingStyle($config = [])
+    /**
+     * @throws Throwable
+     */
+    protected function renderLoadingStyle($config = []): string
     {
         $config = array_merge([
             'id' => $this->options['id'] . '-overlay'

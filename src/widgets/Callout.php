@@ -2,6 +2,7 @@
 namespace davidxu\adminlte4\widgets;
 
 use yii\base\ErrorException;
+use yii\base\InvalidConfigException;
 use yii\bootstrap5\Widget;
 use yii\helpers\Html;
 
@@ -20,19 +21,19 @@ class Callout extends Widget
     /**
      * @var array supported type
      */
-    public $supportedType = ['danger', 'info', 'warning', 'success'];
+    public array $supportedType = ['danger', 'info', 'warning', 'success'];
 
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $head;
+    public ?string $type = null;
 
     /**
-     * @var string
+     * @var ?string
      */
-    public $body;
+    public ?string $head = null;
+
+    /**
+     * @var ?string
+     */
+    public ?string $body = null;
 
     /**
      * @inheritdoc
@@ -42,14 +43,18 @@ class Callout extends Widget
     /**
      * @var string $template
      */
-    public $template = <<<html
+    public string $template = <<<html
 <div {options}>
     <h5>{head}</h5>
     <p>{body}</p>
 </div>
 html;
 
-    public function init()
+    /**
+     * @throws ErrorException
+     * @throws InvalidConfigException
+     */
+    public function init(): void
     {
         parent::init();
 

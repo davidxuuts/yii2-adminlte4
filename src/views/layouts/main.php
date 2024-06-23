@@ -7,11 +7,11 @@ use yii\helpers\Html;
 
 \davidxu\adminlte4\assets\FontAwesomeAsset::register($this);
 \davidxu\adminlte4\assets\AdminLteAsset::register($this);
-$this->registerCssFile('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback');
+//$this->registerCssFile('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback');
 
-$assetDir = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
+$assetDir = Yii::$app->assetManager->getPublishedUrl('@vendor/davidxu/yii2-adminlte4/src/adminlte4');
 
-$publishedRes = Yii::$app->assetManager->publish('@vendor/hail812/yii2-adminlte3/src/web/js');
+$publishedRes = Yii::$app->assetManager->publish('@vendor/davdixu/yii2-adminlte4/src/web/js');
 $this->registerJsFile($publishedRes[1].'/control_sidebar.js', ['depends' => '\davidxu\adminlte4\assets\AdminLteAsset']);
 ?>
 <?php $this->beginPage() ?>

@@ -1,6 +1,7 @@
 <?php
 namespace davidxu\adminlte4\widgets;
 
+use Exception;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -60,17 +61,17 @@ class Menu extends \yii\widgets\Menu
     /**
      * @var string treeview wrapper
      */
-    public $treeTemplate = "\n<ul class='nav nav-treeview'>\n{items}\n</ul>\n";
+    public string $treeTemplate = "\n<ul class='nav nav-treeview'>\n{items}\n</ul>\n";
 
     /**
      * @var string
      */
-    public static $iconDefault = 'circle';
+    public static string $iconDefault = 'circle';
 
     /**
      * @var string
      */
-    public static $iconStyleDefault = 'fas';
+    public static string $iconStyleDefault = 'bi';
 
     /**
      * @inheritdoc
@@ -86,23 +87,21 @@ class Menu extends \yii\widgets\Menu
      * @inheritdoc
      */
     public $options = [
-        'class' => 'nav nav-pills nav-sidebar flex-column',
-        'data-widget' => 'treeview',
+        'class' => 'nav sidebar-menu flex-column',
+        'data-lte-toggle' => 'treeview',
         'role' => 'menu',
         'data-accordion' => 'false'
     ];
 
-    protected function renderItems($items)
+    /**
+     * @throws Exception
+     */
+    protected function renderItems($items): string
     {
         $n = count($items);
         $lines = [];
         foreach ($items as $i => $item) {
-            $options = array_merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []));
-
-            if (isset($item['items'])) {
-                Html::addCssClass($options, 'has-treeview');
-            }
-
+            $options = ArrayHelper::merge($this->itemOptions, ArrayHelper::getValue($item, 'options', []) ?? []);
             if (isset($item['header']) && $item['header']) {
                 Html::removeCssClass($options, 'nav-item');
                 Html::addCssClass($options, 'nav-header');
@@ -138,6 +137,9 @@ class Menu extends \yii\widgets\Menu
         return implode("\n", $lines);
     }
 
+    /**
+     * @throws Exception
+     */
     protected function renderItem($item)
     {
         if(isset($item['header']) && $item['header']) {
@@ -149,7 +151,7 @@ class Menu extends \yii\widgets\Menu
         } else {
             $iconStyle = $item['iconStyle'] ?? static::$iconStyleDefault;
             $icon = $item['icon'] ?? static::$iconDefault;
-            $iconClassArr = ['nav-icon', $iconStyle, 'fa-'.$icon];
+            $iconClassArr = ['nav-icon', $iconStyle, 'bi-'.$icon];
             isset($item['iconClassAdded']) && $iconClassArr[] = $item['iconClassAdded'];
             $iconClass = implode(' ', $iconClassArr);
         }
@@ -157,7 +159,7 @@ class Menu extends \yii\widgets\Menu
 
         $treeFlag = '';
         if (isset($item['items'])) {
-            $treeFlag = '<i class="right fas fa-angle-left"></i>';
+            $treeFlag = '<i class="nav-arrow bi bi-chevron-right"></i>';
         }
 
         $template = ArrayHelper::getValue($item, 'template', (isset($item['linkTemplate']))? $item['linkTemplate'] : $this->linkTemplate);

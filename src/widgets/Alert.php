@@ -1,7 +1,9 @@
 <?php
 namespace davidxu\adminlte4\widgets;
 
+use Throwable;
 use yii\base\ErrorException;
+use yii\base\InvalidConfigException;
 use yii\bootstrap5\Widget;
 
 /**
@@ -10,7 +12,7 @@ use yii\bootstrap5\Widget;
  */
 class Alert extends Widget
 {
-    public $alertTypes = [
+    public array $alertTypes = [
         'danger' => [
             'class' => 'alert-danger',
             'icon' => 'fa-ban'
@@ -35,21 +37,21 @@ class Alert extends Widget
         ]
     ];
 
-    public $type;
+    public ?string $type = 'success';
 
-    public $title = 'Alert!';
+    public ?string $title = 'Alert!';
 
-    public $icon;
+    public ?string $icon = null;
 
     /**
-     * @var string the body content in the alert component.
+     * @var ?string the body content in the alert component.
      */
-    public $body;
+    public ?string $body = null;
 
     /**
      * @var bool whether or not the body has the head
      */
-    public $simple = false;
+    public bool $simple = false;
 
     /**
      * @var array|false the options for rendering the close button tag.
@@ -57,13 +59,17 @@ class Alert extends Widget
      * The following special options are supported:
      *
      * - tag: string, the tag name of the button. Defaults to 'button'.
-     * - label: string, the label of the button. Defaults to '&times;'.
+     * - label: string, the label of the button. Defaults to 'X'.
      *
      * The rest of the options will be rendered as the HTML attributes of the button tag.
      */
-    public $closeButton = [];
+    public array|false $closeButton = [];
 
-    public function init()
+    /**
+     * @throws ErrorException
+     * @throws InvalidConfigException
+     */
+    public function init(): void
     {
         parent::init();
 
@@ -75,16 +81,19 @@ class Alert extends Widget
         }
     }
 
-    public function run()
+    /**
+     * @throws Throwable
+     */
+    public function run(): void
     {
         $head = '';
         if (!$this->simple) {
             $icon = $this->icon ?? $this->alertTypes[$this->type]['icon'] ?? null;
-            $iconHtml = $icon ? '<i class="icon fas '.$icon.'"></i>' : '';
+            $iconHtml = $icon ? '<i class="icon bi '.$icon.'"></i>' : '';
             $head = '<h5>'.$iconHtml.' '.$this->title.'</h5>';
         }
 
-        echo \yii\bootstrap4\Alert::widget([
+        echo \yii\bootstrap5\Alert::widget([
             'body' => $head.$this->body,
             'closeButton' => $this->closeButton,
             'options' => [

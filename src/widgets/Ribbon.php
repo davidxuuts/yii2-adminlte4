@@ -19,13 +19,13 @@ use yii\helpers\Html;
  */
 class Ribbon extends Widget
 {
-    public $text;
+    public string $text = '';
 
     /**
      * primary, secondary, info, success
      * @var string
      */
-    public $theme;
+    public string $theme = '';
 
     /**
      * ribbon size
@@ -33,17 +33,17 @@ class Ribbon extends Widget
      * xl - extra large
      * @var string
      */
-    public $size;
+    public string $size = 'lg';
 
     /**
      * text size
      * @var string
      */
-    public $textSize;
+    public string $textSize = '';
 
-    public $textOptions = [];
+    public array $textOptions = [];
 
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -53,18 +53,17 @@ class Ribbon extends Widget
         echo $this->renderText() . "\n";
     }
 
-    public function run()
+    public function run(): void
     {
         echo "\n" . Html::endTag('div');
     }
 
-    protected function renderText()
+    protected function renderText(): string
     {
-        $ribbon = Html::tag('div', $this->text, $this->textOptions);
-        return $ribbon;
+        return Html::tag('div', $this->text, $this->textOptions);
     }
 
-    protected function initOptions()
+    protected function initOptions(): void
     {
         $this->options = array_merge([
             'class' => 'ribbon-wrapper'

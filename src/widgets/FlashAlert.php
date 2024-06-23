@@ -1,6 +1,8 @@
 <?php
 namespace davidxu\adminlte4\widgets;
 
+use Throwable;
+use Yii;
 use yii\bootstrap5\Widget;
 
 /**
@@ -8,7 +10,7 @@ use yii\bootstrap5\Widget;
  * @package davidxu\adminlte4\widgets
  *
  * Alert widget renders a message from session flash. All flash messages are displayed
- * in the sequence they were assigned using setFlash. You can set message as following:
+ * in the sequence they were assigned using setFlash. You can set the message as following:
  *
  * ```php
  * Yii::$app->session->setFlash('error', 'This is the message');
@@ -26,11 +28,11 @@ class FlashAlert extends Widget
 {
     /**
      * @var array the alert types configuration for the flash messages.
-     * This array is setup as $key => $value, where:
+     * This array is setups as $key => $value, where:
      * - key: the name of the session flash variable
-     * - value: the bootstrap alert type (i.e. danger, success, info, warning)
+     * - value: the bootstrap alert type (i.e., danger, success, info, warning)
      */
-    public $alertTypes = [
+    public array $alertTypes = [
         'error'   => 'alert-danger',
         'danger'  => 'alert-danger',
         'success' => 'alert-success',
@@ -41,11 +43,14 @@ class FlashAlert extends Widget
      * @var array the options for rendering the close button tag.
      * Array will be passed to [[\yii\bootstrap\Alert::closeButton]].
      */
-    public $closeButton = [];
+    public array $closeButton = [];
 
-    public function run()
+    /**
+     * @throws Throwable
+     */
+    public function run(): void
     {
-        $session = \Yii::$app->session;
+        $session = Yii::$app->session;
         $flashes = $session->getAllFlashes();
         $appendClass = isset($this->options['class']) ? ' ' . $this->options['class'] : '';
 

@@ -68,11 +68,11 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
 }
 ?>
 
-                            ['class' => 'hail812\adminlte3\yii\grid\ActionColumn'],
+                            ['class' => 'davidxu\adminlte4\yii\grid\ActionColumn'],
                         ],
                         'summaryOptions' => ['class' => 'summary mb-2'],
                         'pager' => [
-                            'class' => 'yii\bootstrap4\LinkPager',
+                            'class' => 'yii\bootstrap5\LinkPager',
                         ]
                     ]); ?>
 <?php else: ?>
@@ -84,7 +84,7 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
                             return Html::a(Html::encode($model-><?= $nameAttribute ?>), ['view', <?= $urlParams ?>]);
                         },
                         'pager' => [
-                            'class' => 'yii\bootstrap4\LinkPager',
+                            'class' => 'yii\bootstrap5\LinkPager',
                             'options' => ['class' => 'pagination mt-3'],
                         ]
                     ]) ?>

@@ -31,25 +31,25 @@ use yii\helpers\Html;
 */
 class InfoBox extends Widget
 {
-    public $text;
+    public ?string $text = '';
 
-    public $number;
+    public string|int|null $number = '';
 
     /**
      * primary, secondary, success, info, warning, danger, dark
      * gradient-primary, gradient-secondary
      *
-     * @var string
+     * @var ?string
      */
-    public $theme;
+    public ?string $theme = null;
 
-    public $icon;
+    public string $icon = '';
 
-    public $iconTheme;
+    public string $iconTheme = '';
 
-    public $iconOptions = [];
+    public array $iconOptions = [];
 
-    public $contentOptions = [];
+    public array $contentOptions = [];
 
     /**
      * [
@@ -59,13 +59,13 @@ class InfoBox extends Widget
      *
      * @var array
      */
-    public $progress;
+    public array $progress = [];
 
-    public $progressBarTheme;
+    public ?string $progressBarTheme = '';
 
-    public $progressBarOptions = [];
+    public array $progressBarOptions = [];
 
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -76,16 +76,16 @@ class InfoBox extends Widget
         echo $this->renderContent() . "\n";
     }
 
-    public function run()
+    public function run(): void
     {
         echo $this->renderLoadingStyle();
         echo "\n" . Html::endTag('div');
     }
 
-    protected function renderIcon()
+    protected function renderIcon(): bool|string
     {
         if (!$this->isShowIcon()) {
-            return;
+            return false;
         }
 
         $icon = Html::tag('i', '', ['class' => $this->icon]);
@@ -93,7 +93,7 @@ class InfoBox extends Widget
         return Html::tag('span', $icon, $this->iconOptions);
     }
 
-    protected function renderContent()
+    protected function renderContent(): string
     {
         $content = "\n" . $this->renderText();
         $content .= "\n" . $this->renderNumber();
@@ -102,20 +102,20 @@ class InfoBox extends Widget
         return Html::tag('div', $content, $this->contentOptions);
     }
 
-    protected function renderText()
+    protected function renderText(): string
     {
         return Html::tag('span', $this->text, ['class' => 'info-box-text']);
     }
 
-    protected function renderNumber()
+    protected function renderNumber(): string
     {
         return Html::tag('span', $this->number, ['class' => 'info-box-number']);
     }
 
-    protected function renderProgressBar()
+    protected function renderProgressBar(): bool|string
     {
         if (!$this->isShowProgress()) {
-            return;
+            return false;
         }
 
         $progressBar = Html::tag('div', '', $this->progressBarOptions);
@@ -126,10 +126,10 @@ class InfoBox extends Widget
     }
 
     /**
-     * Initializes the widget options
+     * Initializes the widget options,
      * This method sets the default values for various options.
      */
-    protected function initOptions()
+    protected function initOptions(): void
     {
         $this->options = array_merge([
             'class' => 'info-box'
@@ -160,12 +160,12 @@ class InfoBox extends Widget
         }
     }
 
-    protected function isShowIcon()
+    protected function isShowIcon(): bool
     {
         return !empty($this->icon);
     }
 
-    protected function isShowProgress()
+    protected function isShowProgress(): bool
     {
         return isset($this->progress['width']);
     }

@@ -1,8 +1,8 @@
 {
     "name": "davidxu/yii2-adminlte4",
-    "description": "adminlte4 for yii2",
+    "description": "adminlte4 for Yii2",
     "type": "yii2-extension",
-    "keywords": ["yii2","extension","adminlte"],
+    "keywords": ["yii2","extension","adminlte", "adminlte4"],
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -15,9 +15,14 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": ">=8.0",
         "yiisoft/yii2": "~2.0.0",
-        "yiisoft/yii2-bootstrap5": "~2.0.4"
+        "yiisoft/yii2-bootstrap5": "~2.0.4",
+        "npm-asset/sweetalert2": "~11.0",
+        "npm-asset/jquery-migrate": "~3.4",
+        "kartik-v/yii2-widget-select2": "^2.2",
+        "twbs/bootstrap-icons": "~1.11.2",
+        "davidxu/yii2-treegrid": "^1.0"
     },
     "autoload": {
         "psr-4": {
