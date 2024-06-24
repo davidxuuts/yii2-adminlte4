@@ -21,8 +21,7 @@
         "npm-asset/sweetalert2": "~11.0",
         "npm-asset/jquery-migrate": "~3.4",
         "kartik-v/yii2-widget-select2": "^2.2",
-        "twbs/bootstrap-icons": "~1.11.2",
-        "davidxu/yii2-treegrid": "^1.0"
+        "twbs/bootstrap-icons": "~1.11.2"
     },
     "autoload": {
         "psr-4": {
