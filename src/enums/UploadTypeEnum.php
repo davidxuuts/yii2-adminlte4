@@ -29,11 +29,11 @@ class UploadTypeEnum extends BaseEnum
     public static function getMap(): array
     {
         return [
-            self::DRIVE_LOCAL => Yii::t('app', 'Local'),
-            self::DRIVE_QINIU => Yii::t('app', 'Qiniu'),
-            self::DRIVE_OSS => Yii::t('app', 'OSS'),
-            self::DRIVE_OSS_DIRECT_PASSING => Yii::t('app', 'OSS direct passing'),
-            self::DRIVE_COS => Yii::t('app', 'COS'),
+            self::DRIVE_LOCAL => Yii::t('adminlte4', 'Local'),
+            self::DRIVE_QINIU => Yii::t('adminlte4', 'Qiniu'),
+            self::DRIVE_OSS => Yii::t('adminlte4', 'OSS'),
+            self::DRIVE_OSS_DIRECT_PASSING => Yii::t('adminlte4', 'OSS direct passing'),
+            self::DRIVE_COS => Yii::t('adminlte4', 'COS'),
         ];
     }
 }

@@ -27,5 +27,7 @@ class BaseUploadAsset extends AssetBundle
 
     public $depends = [
         BaseAsset::class,
+        QiniuJsAsset::class,
+        QETagAsset::class,
     ];
 }

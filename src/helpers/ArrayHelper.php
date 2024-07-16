@@ -2,7 +2,6 @@
 
 namespace davidxu\adminlte4\helpers;
 
-use Yii;
 use yii\helpers\BaseArrayHelper;
 use yii\helpers\HtmlPurifier;
 
@@ -53,25 +52,26 @@ class ArrayHelper extends BaseArrayHelper
 
     /**
      * @param array $categories
+     * @param int|string|null $parent_id
+     * @param int $level
      * @param string $idField
-     * @param string $titleField
+     * @param string $parentField
      * @param string $levelField
-     * @param string $strPad
      * @return array
      */
-    public static function getMenuItems(array $categories, string $idField = 'id', string $titleField = 'title', string $levelField = 'level', string $strPad = '&nbsp;&nbsp;&nbsp;&nbsp;|--&nbsp;'): array
+    public static function getMenuItems(array $categories, int|string|null $parent_id = null, int $level = 1, string $idField = 'id', string $parentField = 'parent_id', string $levelField = 'level'): array
     {
         $items = [];
-        if (count($categories) <= 0) {
-            return $items;
-        }
-        Yii::info($categories);
         foreach ($categories as $category) {
-//            $items[$category[$idField]] = HtmlPurifier::process(str_repeat($strPad, $category[$levelField] - 1)) . $category[$titleField];
-            $items[] = [
-                'label' => $category[$titleField],
-                'url' => $category['url'] ?? '#',
-            ];
+            if ($category[$parentField] === $parent_id) {
+                $category[$levelField] = $level;
+                $category['children'] = static::getMenuItems($categories, $category[$idField], $level + 1);
+                if (count($category['children'])) {
+                    $category['items'] = $category['children'];
+                }
+                unset($category['children'], $category[$levelField]);
+                $items[] = $category;
+            }
         }
         return $items;
     }

@@ -1,0 +1,51 @@
+[data-bs-theme=dark] .select2-container--krajee-bs5 .select2-selection {
+  background-color: var(--bs-dark);
+  border: 1px solid #ced4da;
+  color: var(--bs-light);
+}
+[data-bs-theme=dark] .select2-container--krajee-bs5 .select2-selection--single .select2-selection__rendered {
+  color: var(--bs-light);
+}
+[data-bs-theme=dark] .select2-container--krajee-bs5 .select2-selection__clear {
+  color: var(--bs-light);
+  text-shadow: 0 1px 0 var(--bs-light);
+}
+[data-bs-theme=dark] .select2-container--krajee-bs5 .select2-search--dropdown .select2-search__field {
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.075);
+  background: var(--bs-dark);
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  color: var(--bs-light);
+}
+[data-bs-theme=dark] .select2-container--krajee-bs5 .select2-selection--multiple .select2-selection__choice {
+  color: var(--bs-light);
+  background: var(--bs-info);
+  border: 1px solid var(--bs-secondary-color);
+}
+[data-bs-theme=dark] .select2-container--krajee-bs5 .select2-results__option.loading-results {
+  background: var(--bs-dark);
+}
+[data-bs-theme=dark] .select2-container--krajee-bs5 .select2-results__option[aria-selected] {
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+}
+[data-bs-theme=dark] .select2-container--krajee-bs5 .select2-results__option.select2-results__option--selected, [data-bs-theme=dark] .select2-container--krajee-bs5 .select2-results__option[aria-selected=true] {
+  color: var(--bs-light);
+  background-color: var(--bs-info);
+}
+[data-bs-theme=dark] .select2-container--krajee-bs5 .load-more {
+  background: var(--bs-dark);
+}
+[data-bs-theme=dark] .select2-container--krajee-bs5 .select2-results__option--highlighted[aria-selected] {
+  background-color: var(--bs-primary);
+  color: var(--bs-light);
+}
+[data-bs-theme=dark] .select2-dropdown {
+  background-color: var(--bs-dark);
+  border: 1px solid var(--bs-light);
+}
+[data-bs-theme=dark] .s2-togall-button {
+  color: var(--bs-light);
+}
+
+/*# sourceMappingURL=select2-bs5.css.map */

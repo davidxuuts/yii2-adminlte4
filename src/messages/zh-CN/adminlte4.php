@@ -15,4 +15,6 @@ return [
     'Rich text' => '富文本',
     'Image' => '单图片',
     'Images' => '多图片',
+    'Data writing error' => '写入数据错误',
+    'Edit' => '编辑',
 ];

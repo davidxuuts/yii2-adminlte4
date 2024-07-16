@@ -21,6 +21,11 @@
         "npm-asset/sweetalert2": "~11.0",
         "npm-asset/jquery-migrate": "~3.4",
         "kartik-v/yii2-widget-select2": "^2.2",
+        "npm-asset/qiniu-js": "^3.4",
+        "qiniu/php-sdk": "^7.12",
+        "ramsey/uuid": "^4.0",
+        "yiisoft/yii2-imagine": "^2.3",
+        "davidxu/yii2-treegrid": "^2.0",
         "twbs/bootstrap-icons": "~1.11.2"
     },
     "autoload": {

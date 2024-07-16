@@ -8,7 +8,8 @@ class AdminLteAsset extends AssetBundle
     public $sourcePath = '@vendor/davidxu/yii2-adminlte4/src/adminlte4';
 
     public $css = [
-        'css/adminlte.min.css'
+        'css/adminlte.min.css',
+        'css/select2-bs5.css',
     ];
 
     public $js = [

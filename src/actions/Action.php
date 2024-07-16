@@ -6,8 +6,8 @@ use davidxu\adminlte4\enums\AttachmentTypeEnum;
 use davidxu\adminlte4\enums\UploadTypeEnum;
 use davidxu\adminlte4\models\Attachment;
 use FFMpeg\FFMpeg;
-use Qiniu\Etag;
 use Yii;
+use Qiniu\Etag;
 use yii\caching\TagDependency;
 use yii\db\ActiveRecord;
 use yii\db\ActiveRecordInterface;
@@ -157,7 +157,7 @@ class Action extends \yii\base\Action
                 ];
             } else {
                 $msg = YII_ENV_PROD
-                    ? Yii::t('base', 'Data writing error')
+                    ? Yii::t('adminlte4', 'Data writing error')
                     : array_values($model->getFirstErrors())[0];
                 $result = [
                     'success' => false,
@@ -240,7 +240,7 @@ class Action extends \yii\base\Action
                     'eof' => (bool)$params['eof'],
                     'eof_txt' => $params['eof'],
                     'completed' => false,
-                    'data' => Yii::t('base', 'Data writing error'),
+                    'data' => Yii::t('adminlte4', 'Data writing error'),
                 ];
             }
         } else {
@@ -250,7 +250,7 @@ class Action extends \yii\base\Action
                 return [
                     'success' => false,
                     'completed' => false,
-                    'data' => Yii::t('base', 'Data writing error'),
+                    'data' => Yii::t('adminlte4', 'Data writing error'),
                 ];
             } else {
                 $data = $params;
@@ -444,7 +444,7 @@ class Action extends \yii\base\Action
             ];
         } else {
             $msg = YII_ENV_PROD
-                ? Yii::t('base', 'Data writing error')
+                ? Yii::t('adminlte4', 'Data writing error')
                 : array_values($model->getFirstErrors())[0];
             return [
                 'success' => false,
@@ -488,12 +488,12 @@ class Action extends \yii\base\Action
 //                'dropzone' => 'dropzone.php',
 //            ],
 //        ];
-        $i18n->translations['base*'] = [
+        $i18n->translations['adminlte4*'] = [
             'class' => PhpMessageSource::class,
             'sourceLanguage' => 'en-US',
-            'basePath' => Yii::getAlias('@davidxu/base/messages'),
+            'basePath' => Yii::getAlias('@davidxu/adminlte4/messages'),
             'fileMap' => [
-                '*' => 'base.php',
+                '*' => 'adminlte4.php',
             ],
         ];
     }

@@ -34,12 +34,12 @@ class AttachmentTypeEnum extends BaseEnum
     public static function getMap(): array
     {
         return [
-            self::TYPE_IMAGE => Yii::t('base', 'Images'),
-            self::TYPE_VIDEO => Yii::t('base', 'Videos'),
-            self::TYPE_AUDIO => Yii::t('base', 'Audios'),
-            self::TYPE_NEWS => Yii::t('base', 'Hybrids'),
-            self::TYPE_THUMBNAIL => Yii::t('base', 'Thumbnails'),
-            self::TYPE_OTHER => Yii::t('base', 'Others'),
+            self::TYPE_IMAGE => Yii::t('adminlte4', 'Images'),
+            self::TYPE_VIDEO => Yii::t('adminlte4', 'Videos'),
+            self::TYPE_AUDIO => Yii::t('adminlte4', 'Audios'),
+            self::TYPE_NEWS => Yii::t('adminlte4', 'Hybrids'),
+            self::TYPE_THUMBNAIL => Yii::t('adminlte4', 'Thumbnails'),
+            self::TYPE_OTHER => Yii::t('adminlte4', 'Others'),
         ];
     }
 }

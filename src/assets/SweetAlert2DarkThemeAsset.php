@@ -8,28 +8,25 @@
 namespace davidxu\adminlte4\assets;
 
 use yii\web\AssetBundle;
+use yii\web\JqueryAsset;
 
 /**
- * Class SweetConfirmAsset
- * @package davidxu\adminlte4\assets
+ * Class SweetAlert2DarkThemeAsset
+ * @package davidxu\adminlte4\assets;
  */
-class SweetConfirmAsset extends AssetBundle
+class SweetAlert2DarkThemeAsset extends AssetBundle
 {
     /**
      * @var string
      */
-    public $sourcePath = '@vendor/davidxu/yii2-adminlte4/src/adminlte4';
+    public $sourcePath = '@npm/sweetalert2--theme-dark';
 
     /**
      * @var array
      */
-    public $css = [];
-
-    /**
-     * @var array
-     */
-    public $js = [
-        'js/sweetconfirm.js',
+    public $js = [];
+    public $css = [
+        'dark.scss',
     ];
 
     /**
@@ -37,6 +34,5 @@ class SweetConfirmAsset extends AssetBundle
      */
     public $depends = [
         SweetAlert2Asset::class,
-//        SweetAlert2DarkThemeAsset::class,
     ];
 }

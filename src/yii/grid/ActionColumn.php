@@ -35,8 +35,8 @@ class ActionColumn extends \yii\grid\ActionColumn
         $this->initDefaultButton('ajax-edit', 'pencil-square', [
             'data-bs-toggle' => $this->modalToggle ?? 'modal',
             'data-bs-target' => $this->modalTarget ?? '#modal',
-            'title' => $this->modalAriaLabel ?? Yii::t('adminlte4', 'Edit'),
-            'aria-label' => $this->modalAriaLabel ?? Yii::t('adminlte4', 'Edit'),
+            'title' => !empty($this->modalAriaLabel) ? $this->modalAriaLabel : Yii::t('adminlte4', 'Edit'),
+            'aria-label' => !empty($this->modalAriaLabel) ? $this->modalAriaLabel : Yii::t('adminlte4', 'Edit'),
             'data-bs-modal-class' => !empty($this->modalSize) ? $this->modalSize : ModalSizeEnum::SIZE_LARGE,
         ]);
     }

@@ -7,9 +7,9 @@
 
 namespace davidxu\adminlte4\models;
 
-use davidxu\base\enums\AttachmentTypeEnum;
+use davidxu\adminlte4\enums\AttachmentTypeEnum;
 use davidxu\adminlte4\enums\StatusEnum;
-use davidxu\base\enums\UploadTypeEnum;
+use davidxu\adminlte4\enums\UploadTypeEnum;
 use Yii;
 
 /**
@@ -78,27 +78,27 @@ class Attachment extends BaseModel
     public function attributeLabels(): array
     {
         return [
-            'id' => Yii::t('base', 'ID'),
-            'member_id' => Yii::t('base', 'Uploader'),
-            'drive' => Yii::t('base', 'Driver'),
-            'file_type' => Yii::t('base', 'Upload type'),
-            'specific_type' => Yii::t('base', 'Specific type'),
-            'path' => Yii::t('base', 'File path'),
-            'poster' => Yii::t('base', 'Video poster'),
-            'hash' => Yii::t('base', 'File hash'),
-            'name' => Yii::t('base', 'Original name'),
-            'extension' => Yii::t('base', 'Extension'),
-            'size' => Yii::t('base', 'File size'),
-            'year' => Yii::t('base', 'Year'),
-            'month' => Yii::t('base', 'Month'),
-            'day' => Yii::t('base', 'Day'),
-            'width' => Yii::t('base', 'Width'),
-            'height' => Yii::t('base', 'Height'),
-            'duration' => Yii::t('base', 'Duration'),
-            'upload_ip' => Yii::t('base', 'Upload IP'),
-            'status' => Yii::t('base', 'Status'),
-            'created_at' => Yii::t('base', 'Created at'),
-            'updated_at' => Yii::t('base', 'Updated at'),
+            'id' => Yii::t('adminlte4', 'ID'),
+            'member_id' => Yii::t('adminlte4', 'Uploader'),
+            'drive' => Yii::t('adminlte4', 'Driver'),
+            'file_type' => Yii::t('adminlte4', 'Upload type'),
+            'specific_type' => Yii::t('adminlte4', 'Specific type'),
+            'path' => Yii::t('adminlte4', 'File path'),
+            'poster' => Yii::t('adminlte4', 'Video poster'),
+            'hash' => Yii::t('adminlte4', 'File hash'),
+            'name' => Yii::t('adminlte4', 'Original name'),
+            'extension' => Yii::t('adminlte4', 'Extension'),
+            'size' => Yii::t('adminlte4', 'File size'),
+            'year' => Yii::t('adminlte4', 'Year'),
+            'month' => Yii::t('adminlte4', 'Month'),
+            'day' => Yii::t('adminlte4', 'Day'),
+            'width' => Yii::t('adminlte4', 'Width'),
+            'height' => Yii::t('adminlte4', 'Height'),
+            'duration' => Yii::t('adminlte4', 'Duration'),
+            'upload_ip' => Yii::t('adminlte4', 'Upload IP'),
+            'status' => Yii::t('adminlte4', 'Status'),
+            'created_at' => Yii::t('adminlte4', 'Created at'),
+            'updated_at' => Yii::t('adminlte4', 'Updated at'),
         ];
     }
 }
